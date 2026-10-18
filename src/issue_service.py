@@ -14,8 +14,8 @@ class IssueService:
 
     def _next_id(self):
         if not self.issues:
-            return 1
-        return max(self.issues) + 1
+            return min(set(range(1,max((self.issues) + 2) -set(self.issues))))
+       
 
     def create(self, data):
         """Create a new issue and return it."""
